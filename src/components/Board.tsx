@@ -1,8 +1,18 @@
 import React from 'react';
-import { calculateChoices } from '../helpers/NumberGenerator.js';
+import { calculateChoices } from '../helpers/NumberGenerator';
 
-class Board extends React.Component {
-  constructor(props){
+export interface Props {
+  score: number,
+  modifier: number,
+  onUpdate: Function
+}
+
+export interface State {
+  choices: number[]
+}
+
+class Board extends React.Component<Props, State> {
+  constructor(props: Props){
     super(props);
     this.state = {
       choices: []
@@ -13,7 +23,7 @@ class Board extends React.Component {
       choices: calculateChoices(this.props.score, this.props.modifier)
     });
   }
-  handleClick = (i) => {
+  handleClick = (i: number) => {
     if (i === (this.props.score * this.props.modifier)) {
       this.props.onUpdate(i);
     } else {
@@ -25,7 +35,7 @@ class Board extends React.Component {
       choices: calculateChoices(i, this.props.modifier)
     });
   }
-  renderChoice(i, direction) {
+  renderChoice(i: number, direction: string) {
     return (
       <Choice
         number={this.state.choices[i]} 
@@ -51,7 +61,13 @@ class Board extends React.Component {
   }
 }
 
-class Choice extends React.Component {
+export interface ChoiceProps {
+  number: number,
+  direction: string,
+  update: Function
+}
+
+class Choice extends React.Component<ChoiceProps> {
   handleClick = () => {
     this.props.update(this.props.number);
     

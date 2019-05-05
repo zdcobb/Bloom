@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Modifier() {
+export interface Props {
+    modifier: number
+}
+
+function Modifier(props: Props) {
     return (
         <div id="modifier">
-            <div class="input-group">
+            <div className="input-group">
                 <label>Modifier</label>
                 <input type="number" className="input"></input>
             </div>
@@ -11,7 +15,7 @@ function Modifier() {
     )
 }
 
-function ModifierDisplay(props) {
+function ModifierDisplay(props: Props) {
     return (
         <div id="modifier-display">
             <p>Powers of {props.modifier}</p>

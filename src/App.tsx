@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Board } from './components/Board.js';
-import { Modifier, ModifierDisplay } from './components/Modifier.js';
+import { Board } from './components/Board';
+import { Modifier, ModifierDisplay } from './components/Modifier';
 
-class App extends Component {
-  constructor(props){
+export interface State {
+  score: number,
+  modifier: number
+}
+
+class App extends React.Component<Object, State> {
+  constructor(props: object){
     super(props);
       this.state = {
         score: 1,
         modifier: 2
       }
   }
-  updateScore = (newScore) => {
+  updateScore = (newScore: number) => {
     this.setState({
       score: newScore
     });
   }
-  updateMod = (newMod) => {
+  updateMod = (newMod: number) => {
     this.setState({
       modifier: newMod
     });
@@ -30,7 +35,8 @@ class App extends Component {
         <Board 
         score={this.state.score} 
         modifier={this.state.modifier} 
-        onUpdate={this.updateScore}/>
+          onUpdate={this.updateScore}
+        />
       </div>
     );
   }

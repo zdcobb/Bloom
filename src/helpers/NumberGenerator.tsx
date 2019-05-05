@@ -1,18 +1,19 @@
-function calculateChoices(scr, mod) {
+
+function calculateChoices(scr: number, mod: number) {
     // console.time('choices');
-    let newArray = addCorrect(new Array(4), scr, mod);
+    let newArray: number[] = addCorrect(new Array(4), scr, mod);
     newArray = fillChoices(newArray, scr, mod);
     // console.timeEnd('choices');
     return newArray;
 }
 
-function addCorrect(arr, scr, mod) {
-    let i = Math.floor(Math.random()*arr.length);
+function addCorrect(arr: number[], scr: number, mod: number) {
+    let i:number = Math.floor(Math.random()*arr.length);
     arr[i] = scr * mod;
     return arr;
 }
 
-function fillChoices(arr, scr, mod) {
+function fillChoices(arr: number[], scr: number, mod: number) {
     // these two set max to mod * 2, and min to mod /2
     let max = scr * (mod * 2);
     let min = scr * (Math.floor(mod / 2));
