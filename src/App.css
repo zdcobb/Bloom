@@ -1,0 +1,112 @@
+:root{
+  --backgroundColor:  #000055;
+  --background2: #3d0a52;
+  --secondaryColor:  #dc7633;
+}
+@keyframes topDown {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.App {
+  text-align: center;
+  /* background-color: var(--primaryColor); */
+  background-image: linear-gradient(to bottom right, var(--backgroundColor), var(--background2));
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+#modifier {
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+}
+#modifier>.modLabel {
+  color: #eee;
+  font-size: 20pt;
+  margin-right: 10px;
+}
+#modifier>.modInput {
+  width: 75px;
+  border: none;
+  border-bottom: 2px solid #eee;
+  background: none;
+  font-size: 20pt;
+  color: #eee;
+  text-align: center;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+#modifier-display {
+  margin-top: 5rem;
+  padding: 20px;
+  width: 600px;
+  font-size: 2.5em;
+  color: #eeeeee;
+  background-color: rgba(0,0,0, 0.4);
+  border-radius: 10px;
+}
+#modifier-display > .mod-number {
+  font-size: 1.5em;
+  line-height: 0.5em;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 125px));
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 5px;
+  justify-content: center;
+  grid-template-areas:
+  'gap top gap'
+  'left score right'
+  'gap bottom gap';
+}
+button {
+  /* border: 4px solid var(--secondaryColor);*/
+  border-radius: 10px;
+  /* color: var(--secondaryColor); */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #eee;
+  font-size: 25px;
+}
+button:active {
+  background-color: var(--secondaryColor);
+  transition: background-color 0.1s;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+.score {
+  /* color: var(--secondaryColor); */
+  background-color: var(--secondaryColor);
+  border-radius: 10px;
+  /* padding: 25px; */
+  font-size: 30px;
+  grid-area: 'score';
+  align-self: stretch;
+}
+.score>button {
+  align-self: center;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
