@@ -67,8 +67,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .board {
   display: grid;
-  grid-template-columns: repeat(3, minmax(min-content, 125px));
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, minmax(min-content, 225px));
+  grid-template-rows: repeat(3, 175px);
   grid-gap: 5px;
   justify-content: center;
   grid-template-areas:
@@ -76,7 +76,7 @@ input[type=number]::-webkit-outer-spin-button {
   'left score right'
   'gap bottom gap';
 }
-button {
+.choice {
   /* border: 4px solid var(--secondaryColor);*/
   border-radius: 10px;
   /* color: var(--secondaryColor); */
@@ -84,13 +84,13 @@ button {
   border: none;
   outline: none;
   color: #eee;
-  font-size: 25px;
+  font-size: 30px;
 }
-button:active {
+.choice:active {
   background-color: var(--secondaryColor);
   transition: background-color 0.1s;
 }
-button::-moz-focus-inner {
+.choice::-moz-focus-inner {
   border: 0;
 }
 .score {
@@ -102,7 +102,7 @@ button::-moz-focus-inner {
   grid-area: 'score';
   align-self: stretch;
 }
-.score>button {
+.score>.choice {
   align-self: center;
 }
 

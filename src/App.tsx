@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import { Board } from './components/Board';
 import { Modifier, ModifierDisplay } from './components/Modifier';
@@ -29,8 +29,8 @@ class App extends React.Component<Object, State> {
   render() {
     return (
       <div className="App">
-        {/* <Modifier mod={this.props.modifier} 
-        update={this.updateMod} /> */}
+        <Modifier modifier={this.state.modifier} 
+        update={this.updateMod} />
         <ModifierDisplay modifier={this.state.modifier}/>
         <Board 
         score={this.state.score} 

@@ -51,7 +51,7 @@ class Board extends React.Component<Props, State> {
         {this.renderChoice(0, 'top')}
         <div className="gap"></div>
         {this.renderChoice(1, 'left')}
-        <button className="score">{this.props.score}</button>
+        <button className="score choice">{this.props.score}</button>
         {this.renderChoice(2, 'right')}
         <div className="gap"></div>
         {this.renderChoice(3, 'bottom')}
@@ -70,11 +70,11 @@ export interface ChoiceProps {
 class Choice extends React.Component<ChoiceProps> {
   handleClick = () => {
     this.props.update(this.props.number);
-    
   }
   render () {
     return (
       <button 
+        className="choice"
         onClick={this.handleClick}>
           {this.props.number}
       </button>
